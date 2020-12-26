@@ -3,9 +3,39 @@
 
 // Добавь методы класса:
 
-getItems() - возвращает массив текущих товаров
-addItem(item) - получает новый товар и добавляет его к текущим
-removeItem(item) - получет товар и, если он есть, удаляет его из текущих
+// getItems() - возвращает массив текущих товаров
+// addItem(item) - получает новый товар и добавляет его к текущим
+// removeItem(item) - получет товар и, если он есть, удаляет его из текущих
+
+class Storage {
+  constructor([...array]) {
+    this.items = array;
+  }
+
+  getItems() {
+    return this.items;
+  };
+
+  addItem(item) {
+    return this.items.push(item);
+  };
+
+  // removeItem(removedItem) {
+  //   const newArrey = [];
+  //   for (const item of this.items) {
+  //     if (item === removedItem) continue;
+
+  //     newArrey.push(item);
+  //   }
+  //   this.items = newArrey;
+  // };
+
+  removeItem(removedItem) {
+    const newArrey = this.items.filter(item => item !== removedItem);
+    this.items = newArrey;
+  };
+}
+
 const storage = new Storage([
   'Нанитоиды',
   'Пролонгер',
